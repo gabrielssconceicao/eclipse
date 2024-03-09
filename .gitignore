@@ -1,0 +1,27 @@
+# Arquivos temporários
+*.class
+*.log
+
+# Arquivos de construção
+bin/
+target/
+
+# Arquivos de dependências
+lib/
+
+# Arquivos de configuração específicos do IDE
+.idea/
+.vscode/
+*.iml
+
+# Arquivos de compilação e saída do Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
