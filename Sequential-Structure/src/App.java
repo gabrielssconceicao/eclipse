@@ -3,33 +3,15 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Locale.setDefault(Locale.US);
-        double x = 3.0;
-        double y = 4.0;
-        double z = -5.0;
-        double A, B, C;
-
-        A = Math.sqrt(x);
-        B = Math.sqrt(y);
-        C = Math.sqrt(25);
-        System.out.println("A raiz quadrada de " + x + " é: " + A);
-        System.out.println("A raiz quadrada de " + y + " é: " + B);
-        System.out.println("A raiz quadrada de 25 é: " + C);
+        saidaDeDados();
         System.out.println();
-
-        A = Math.pow(x, y);
-        B = Math.pow(y, 2);
-        C = Math.pow(5, 2);
-        System.out.printf("%.1f elevado a %.1f é %.2f \n", x, y, A);
-        System.out.printf("%.1f elevado ao quadrado é %.2f \n", y, B);
-        System.out.printf("5 elevado ao quadrado é %.2f \n", C);
         System.out.println();
-
-        A = Math.abs(y);
-        B = Math.abs(z);
-
-        System.out.println("O valor absoluto de " + y + " é: " + A);
-        System.out.println("O valor absoluto de " + z + " é: " + B);
+        System.out.println();
+        entradaDeDados();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        math();
     }
 
     static private void saidaDeDados() {
@@ -75,5 +57,35 @@ public class App {
         z = sc.nextDouble();
         System.out.println("O valor digitado é: " + z + "\n");
         sc.close();
+    }
+
+    static private void math() {
+        Locale.setDefault(Locale.US);
+        double x = 3.0;
+        double y = 4.0;
+        double z = -5.0;
+        double A, B, C;
+
+        A = Math.sqrt(x);
+        B = Math.sqrt(y);
+        C = Math.sqrt(25);
+        System.out.println("A raiz quadrada de " + x + " é: " + A);
+        System.out.println("A raiz quadrada de " + y + " é: " + B);
+        System.out.println("A raiz quadrada de 25 é: " + C);
+        System.out.println();
+
+        A = Math.pow(x, y);
+        B = Math.pow(y, 2);
+        C = Math.pow(5, 2);
+        System.out.printf("%.1f elevado a %.1f é %.2f \n", x, y, A);
+        System.out.printf("%.1f elevado ao quadrado é %.2f \n", y, B);
+        System.out.printf("5 elevado ao quadrado é %.2f \n", C);
+        System.out.println();
+
+        A = Math.abs(y);
+        B = Math.abs(z);
+
+        System.out.println("O valor absoluto de " + y + " é: " + A);
+        System.out.println("O valor absoluto de " + z + " é: " + B);
     }
 }
