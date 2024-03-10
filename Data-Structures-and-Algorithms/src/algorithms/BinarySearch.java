@@ -1,13 +1,13 @@
 package algorithms;
 
-public class BinarySearch {
+public class BinarySearch extends CreateArray {
   // binary search = Search algorithm that finds the position
   // of a target value within a sorted array.
   // Half of the array is eliminated during each "step"
 
   public static void main(String[] args) {
     int[] array = createArray(1000000);
-    int target = 1;
+    int target = 45;
 
     int index = binarySearch(array, target);
 
@@ -18,13 +18,13 @@ public class BinarySearch {
     }
   }
 
-  private static int[] createArray(int size) {
-    int[] array = new int[size];
-    for (int i = 0; i < array.length; i++) {
-      array[i] = i;
-    }
-    return array;
-  }
+  // private static int[] createArray(int size) {
+  // int[] array = new int[size];
+  // for (int i = 0; i < array.length; i++) {
+  // array[i] = i;
+  // }
+  // return array;
+  // }
 
   private static int binarySearch(int[] array, int target) {
     int low = 0;
