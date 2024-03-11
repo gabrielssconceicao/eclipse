@@ -27,4 +27,14 @@ public class CreateArray {
     }
     return array;
   }
+
+  protected static void printArray(int[] array) {
+    String string = "";
+
+    for (int i = 0; i < array.length; i++) {
+      string += array[i] + ",";
+    }
+    String newString = string.substring(0, string.length() - 1);
+    System.out.println("[" + newString + "]");
+  }
 }
