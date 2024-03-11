@@ -1,4 +1,4 @@
-package structures.graphs;
+package structures.adjacencymatrix;
 
 public class Node {
 
