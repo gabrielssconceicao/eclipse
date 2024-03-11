@@ -1,6 +1,12 @@
 package algorithms;
 
 public class BubbleSort extends CreateArray {
+  // bubble sort = pairs of adjacent elements are compared, and the elements
+  // swapped if they are not in order.
+
+  // Quadratic time O(n^2)
+  // small data set = okay-ish
+  // large data set = BAD (plz don't)
 
   public static void main(String[] args) {
     int[] array = createUnsortedArray(100);
