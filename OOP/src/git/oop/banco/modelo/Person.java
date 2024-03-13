@@ -1,3 +1,5 @@
+package git.oop.banco.modelo;
+
 public class Person {
   private String name;
   private String document;

@@ -1,3 +1,5 @@
+package git.oop.banco.modelo;
+
 import java.util.Objects;
 
 public class Conta {
@@ -7,24 +9,25 @@ public class Conta {
   private int numero;
   private double saldo;
 
-  Conta() {
+  public Conta() {
+
   }
 
-  Conta(Person titular, int agencia, int numero) {
+  public Conta(Person titular, int agencia, int numero) {
     Objects.requireNonNull(titular);
     this.titular = titular;
     this.agencia = agencia;
     this.numero = numero;
   }
 
-  void depositar(double value) {
+  public void depositar(double value) {
     if (value < 0) {
       throw new IllegalArgumentException("Depositos devem ser positivos!");
     }
     this.saldo += value;
   }
 
-  void sacar(double value) {
+  public void sacar(double value) {
     if (value < 0) {
       throw new IllegalArgumentException("Saque devem ser positivos!");
     }
@@ -35,24 +38,24 @@ public class Conta {
     saldo -= value;
   }
 
-  void sacar(double value, double taxaSaque) {
+  public void sacar(double value, double taxaSaque) {
     sacar(value + taxaSaque);
 
   }
 
-  Person getTitular() {
+  public Person getTitular() {
     return titular;
   }
 
-  int getAgencia() {
+  public int getAgencia() {
     return agencia;
   }
 
-  int getNumero() {
+  public int getNumero() {
     return numero;
   }
 
-  double getSaldo() {
+  public double getSaldo() {
     return saldo;
   }
 }

@@ -1,3 +1,8 @@
+package git.oop.banco.app;
+
+import git.oop.banco.modelo.Conta;
+import git.oop.banco.modelo.Person;
+
 public class Main {
   public static void main(String[] args) {
     Person titular1 = new Person("Max Power", "123456789");
