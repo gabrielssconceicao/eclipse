@@ -2,10 +2,13 @@ import java.util.Objects;
 
 public class Conta {
 
-  Person titular;
-  int agencia;
-  int numero;
-  double saldo;
+  private Person titular;
+  private int agencia;
+  private int numero;
+  private double saldo;
+
+  Conta() {
+  }
 
   Conta(Person titular, int agencia, int numero) {
     Objects.requireNonNull(titular);
@@ -35,5 +38,21 @@ public class Conta {
   void sacar(double value, double taxaSaque) {
     sacar(value + taxaSaque);
 
+  }
+
+  Person getTitular() {
+    return titular;
+  }
+
+  int getAgencia() {
+    return agencia;
+  }
+
+  int getNumero() {
+    return numero;
+  }
+
+  double getSaldo() {
+    return saldo;
   }
 }
