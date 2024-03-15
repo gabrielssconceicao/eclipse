@@ -2,7 +2,7 @@ package git.oop.banco.modelo;
 
 import java.util.Objects;
 
-public class Conta {
+public abstract class Conta {
 
   private Person titular;
   private int agencia;
@@ -62,4 +62,6 @@ public class Conta {
   public double getSaldoDisponivel() {
     return this.getSaldo();
   }
+
+  public abstract void debitarTarifaMensal();
 }

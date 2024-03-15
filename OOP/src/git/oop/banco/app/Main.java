@@ -1,7 +1,6 @@
 package git.oop.banco.app;
 
 import git.oop.banco.modelo.CaixaEletronico;
-import git.oop.banco.modelo.Conta;
 import git.oop.banco.modelo.ContaEspecial;
 import git.oop.banco.modelo.ContaInvestimento;
 import git.oop.banco.modelo.Person;
@@ -18,10 +17,13 @@ public class Main {
     myAccount.depositar(25_000.34);
     myAccount.sacar(10_000, 0.34);
     myAccount.creditarRendimentos(0.8);
+    myAccount.debitarTarifaMensal();
 
     yourAccount.depositar(15_000.0);
     yourAccount.sacar(15_500.0);
+    yourAccount.debitarTarifaMensal();
     System.out.println(yourAccount.getSaldo());
+
     caixaEletronico.imprimirSaldo(myAccount);
     caixaEletronico.imprimirSaldo(yourAccount);
 

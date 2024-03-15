@@ -10,4 +10,12 @@ public class ContaInvestimento extends Conta {
     depositar(valorRendimentos);
   }
 
+  @Override
+  public void debitarTarifaMensal() {
+
+    if (getSaldo() < 10_000) {
+      sacar(30);
+    }
+  }
+
 }

@@ -21,4 +21,10 @@ public class ContaEspecial extends Conta {
     return getSaldo() + getLimite();
   }
 
+  @Override
+  public void debitarTarifaMensal() {
+
+    this.sacar(20.5);
+  }
+
 }
