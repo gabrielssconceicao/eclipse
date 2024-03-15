@@ -31,7 +31,7 @@ public class Conta {
     if (value < 0) {
       throw new IllegalArgumentException("Saque devem ser positivos!");
     }
-    if (saldo - value < 0) {
+    if (getSaldoDisponivel() - value < 0) {
       throw new IllegalStateException("Saldo insuficiente!");
     }
 
@@ -57,5 +57,9 @@ public class Conta {
 
   public double getSaldo() {
     return saldo;
+  }
+
+  public double getSaldoDisponivel() {
+    return this.getSaldo();
   }
 }
