@@ -18,7 +18,7 @@ public class ContaEspecial extends Conta {
 
   @Override
   public double getSaldoDisponivel() {
-    return this.getSaldo() + getLimite();
+    return getSaldo() + getLimite();
   }
 
 }
