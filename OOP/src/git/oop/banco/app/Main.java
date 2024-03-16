@@ -1,5 +1,7 @@
 package git.oop.banco.app;
 
+import java.time.LocalDateTime;
+
 import git.oop.banco.modelo.ContaEspecial;
 import git.oop.banco.modelo.ContaInvestimento;
 import git.oop.banco.modelo.Person;
@@ -19,7 +21,8 @@ public class Main {
     System.out.println(titular1.getTipo());
     titular1.setTipo(TipoPessoa.JURIDICA);
     System.out.println(titular1.getTipo());
-
+    titular1.setDataUltimaAtualizacao(LocalDateTime.parse("2022-01-01T13:20:00"));
+    System.out.println(titular1.getDataUltimaAtualizacao());
     Person titular2 = new Person("Mary Jane", "455345364");
 
     ContaInvestimento myAccount = new ContaInvestimento(titular1, 123, 456);

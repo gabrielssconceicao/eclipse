@@ -1,10 +1,15 @@
 package git.oop.banco.modelo;
 
+import java.time.LocalDateTime;
+
 public class Person {
   private String name;
   private String document;
-  private Double rendimentoAnual;
+  private double rendimentoAnual;
   private TipoPessoa tipo = TipoPessoa.FISICA;
+
+  // LocalDateTime = Data e Hora sem fuso horário
+  private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
 
   public Person(String name, String document) {
     this.name = name;
@@ -27,11 +32,11 @@ public class Person {
     this.document = document;
   }
 
-  public Double getRendimentoAnual() {
+  public double getRendimentoAnual() {
     return rendimentoAnual;
   }
 
-  public void setRendimentoAnual(Double rendimentoAnual) {
+  public void setRendimentoAnual(double rendimentoAnual) {
     this.rendimentoAnual = rendimentoAnual;
   }
 
@@ -41,5 +46,13 @@ public class Person {
 
   public void setTipo(TipoPessoa tipo) {
     this.tipo = tipo;
+  }
+
+  public LocalDateTime getDataUltimaAtualizacao() {
+    return dataUltimaAtualizacao;
+  }
+
+  public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+    this.dataUltimaAtualizacao = dataUltimaAtualizacao;
   }
 }

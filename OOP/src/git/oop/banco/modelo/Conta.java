@@ -1,7 +1,6 @@
 package git.oop.banco.modelo;
 
 import java.util.Objects;
-
 import git.oop.banco.modelo.excecao.SaldoInsuficienteException;
 
 public abstract class Conta {
