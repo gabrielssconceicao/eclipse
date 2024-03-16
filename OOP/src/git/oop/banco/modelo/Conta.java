@@ -37,7 +37,7 @@ public abstract class Conta {
       throw new SaldoInsuficienteException("Saldo insuficiente!");
     }
 
-    saldo -= value;
+    this.saldo -= value;
   }
 
   public void sacar(double value, double taxaSaque) {

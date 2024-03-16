@@ -3,6 +3,7 @@ package git.oop.banco.app;
 import git.oop.banco.modelo.ContaEspecial;
 import git.oop.banco.modelo.ContaInvestimento;
 import git.oop.banco.modelo.Person;
+import git.oop.banco.modelo.TipoPessoa;
 import git.oop.banco.modelo.atm.CaixaEletronico;
 import git.oop.banco.modelo.excecao.SaldoInsuficienteException;
 import git.oop.banco.modelo.pagamento.Boleto;
@@ -11,7 +12,14 @@ import git.oop.banco.modelo.pagamento.Holerite;
 public class Main {
   public static void main(String[] args) {
     CaixaEletronico caixaEletronico = new CaixaEletronico();
+
     Person titular1 = new Person("Max Power", "123456789");
+    titular1.setRendimentoAnual(15_000d);
+    System.out.println(titular1.getRendimentoAnual());
+    System.out.println(titular1.getTipo());
+    titular1.setTipo(TipoPessoa.JURIDICA);
+    System.out.println(titular1.getTipo());
+
     Person titular2 = new Person("Mary Jane", "455345364");
 
     ContaInvestimento myAccount = new ContaInvestimento(titular1, 123, 456);
