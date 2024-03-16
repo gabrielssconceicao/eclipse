@@ -1,6 +1,7 @@
 package git.oop.banco.modelo;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Person {
   private String name;
@@ -10,6 +11,9 @@ public class Person {
 
   // LocalDateTime = Data e Hora sem fuso horário
   private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
+
+  public Person() {
+  }
 
   public Person(String name, String document) {
     this.name = name;
@@ -54,5 +58,40 @@ public class Person {
 
   public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
     this.dataUltimaAtualizacao = dataUltimaAtualizacao;
+  }
+
+  @Override
+  public String toString() {
+    return "Pessoa{" +
+        "nome='" + name + '\'' +
+        ", documento='" + document + '\'' +
+        ", rendimentoAnual=" + rendimentoAnual +
+        ", tipo=" + tipo +
+        '}';
+  }
+
+  // This method is used to compare two objects
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (obj == null) {
+      return false;
+    }
+
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+
+    Person pessoa = (Person) obj;
+    return document.equals(pessoa.document);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(document);
   }
 }
