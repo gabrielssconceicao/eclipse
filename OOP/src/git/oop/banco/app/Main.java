@@ -1,9 +1,11 @@
 package git.oop.banco.app;
 
-import git.oop.banco.modelo.CaixaEletronico;
 import git.oop.banco.modelo.ContaEspecial;
 import git.oop.banco.modelo.ContaInvestimento;
 import git.oop.banco.modelo.Person;
+import git.oop.banco.modelo.atm.CaixaEletronico;
+import git.oop.banco.modelo.pagamento.Boleto;
+import git.oop.banco.modelo.pagamento.Holerite;
 
 public class Main {
   public static void main(String[] args) {
@@ -23,6 +25,20 @@ public class Main {
     yourAccount.sacar(15_500.0);
     yourAccount.debitarTarifaMensal();
     System.out.println(yourAccount.getSaldo());
+
+    Boleto boletoEscola = new Boleto(titular2, 1_500);
+    Holerite salarioFuncionario = new Holerite(titular1, 100, 13);
+
+    caixaEletronico.pagar(boletoEscola, myAccount);
+    System.out.println("Boleto pago: " + boletoEscola.estaPago());
+    boletoEscola.imprimirRecibo();
+    caixaEletronico.estornarPagamento(boletoEscola, myAccount);
+
+    caixaEletronico.pagar(salarioFuncionario, myAccount);
+    System.out.println("Holerite pago: " + salarioFuncionario.estaPago());
+
+    boletoEscola.imprimirRecibo();
+    salarioFuncionario.imprimirRecibo();
 
     caixaEletronico.imprimirSaldo(myAccount);
     caixaEletronico.imprimirSaldo(yourAccount);
