@@ -4,6 +4,7 @@ import git.oop.banco.modelo.ContaEspecial;
 import git.oop.banco.modelo.ContaInvestimento;
 import git.oop.banco.modelo.Person;
 import git.oop.banco.modelo.atm.CaixaEletronico;
+import git.oop.banco.modelo.excecao.SaldoInsuficienteException;
 import git.oop.banco.modelo.pagamento.Boleto;
 import git.oop.banco.modelo.pagamento.Holerite;
 
@@ -16,27 +17,29 @@ public class Main {
     ContaInvestimento myAccount = new ContaInvestimento(titular1, 123, 456);
     ContaEspecial yourAccount = new ContaEspecial(titular2, 456, 789, 1000);
 
-    myAccount.depositar(25_000.34);
-    myAccount.sacar(10_000, 0.34);
-    myAccount.creditarRendimentos(0.8);
-    myAccount.debitarTarifaMensal();
-
-    yourAccount.depositar(15_000.0);
-    yourAccount.sacar(15_500.0);
-    yourAccount.debitarTarifaMensal();
-    System.out.println(yourAccount.getSaldo());
-
     Boleto boletoEscola = new Boleto(titular2, 1_500);
     Holerite salarioFuncionario = new Holerite(titular1, 100, 13);
+    try {
+      myAccount.depositar(25_000.34);
+      myAccount.sacar(10_000, 0.34);
+      myAccount.creditarRendimentos(0.8);
+      myAccount.debitarTarifaMensal();
 
-    caixaEletronico.pagar(boletoEscola, myAccount);
-    System.out.println("Boleto pago: " + boletoEscola.estaPago());
-    boletoEscola.imprimirRecibo();
-    caixaEletronico.estornarPagamento(boletoEscola, myAccount);
+      yourAccount.depositar(15_000.0);
+      yourAccount.sacar(45_500.0);
+      yourAccount.debitarTarifaMensal();
+      System.out.println(yourAccount.getSaldo());
 
-    caixaEletronico.pagar(salarioFuncionario, myAccount);
-    System.out.println("Holerite pago: " + salarioFuncionario.estaPago());
+      caixaEletronico.pagar(boletoEscola, myAccount);
+      System.out.println("Boleto pago: " + boletoEscola.estaPago());
+      boletoEscola.imprimirRecibo();
+      caixaEletronico.estornarPagamento(boletoEscola, myAccount);
 
+      caixaEletronico.pagar(salarioFuncionario, myAccount);
+      System.out.println("Holerite pago: " + salarioFuncionario.estaPago());
+    } catch (SaldoInsuficienteException e) {
+      System.out.println("Erro ao executar operação: " + e.getMessage());
+    }
     boletoEscola.imprimirRecibo();
     salarioFuncionario.imprimirRecibo();
 

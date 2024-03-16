@@ -2,6 +2,8 @@ package git.oop.banco.modelo;
 
 import java.util.Objects;
 
+import git.oop.banco.modelo.excecao.SaldoInsuficienteException;
+
 public abstract class Conta {
 
   private Person titular;
@@ -32,7 +34,7 @@ public abstract class Conta {
       throw new IllegalArgumentException("Saque devem ser positivos!");
     }
     if (getSaldoDisponivel() - value < 0) {
-      throw new IllegalStateException("Saldo insuficiente!");
+      throw new SaldoInsuficienteException("Saldo insuficiente!");
     }
 
     saldo -= value;
