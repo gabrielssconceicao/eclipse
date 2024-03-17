@@ -17,7 +17,7 @@ public class Banco {
     Conta conta5 = new ContaEspecial(pessoa2, 123, 222, 1000);
 
     conta1.depositar(120);
-    conta2.depositar(150);
+    conta2.depositar(130);
     conta3.depositar(500);
     conta5.depositar(12_000);
 
