@@ -2,7 +2,7 @@ package git.oop.banco.modelo.pagamento;
 
 import git.oop.banco.modelo.Person;
 
-public class Boleto implements DocumentoPagavel, DocumentoEstornavel {
+public class Boleto implements DocumentoEstornavel {
   private Person beneficiario;
   private double valor;
   private boolean pago;
