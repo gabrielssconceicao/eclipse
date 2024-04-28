@@ -1,15 +1,12 @@
 package exercises.ex01.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class HourContract {
 
   private Date date;
   private Double valuePerHour;
   private Integer hours;
-
-  public HourContract() {
-  }
 
   public HourContract(Date date, Double valuePerHour, Integer hours) {
     this.date = date;
