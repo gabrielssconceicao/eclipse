@@ -1,12 +1,14 @@
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
 
         LocalDate d01 = LocalDate.now();
         LocalDateTime d02 = LocalDateTime.now();
@@ -29,5 +31,10 @@ public class App {
         System.out.println("d06 = " + d06);
 
         System.out.println("d08 = " + d08);
+
+        System.out.println("d06= " + formatter2.format(d06));
+        System.out.println("d08 dia:" + d08.getDayOfMonth());
+        System.out.println("d08 mes:" + d08.getMonthValue());
+        System.out.println("d08 ano:" + d08.getYear());
     }
 }
