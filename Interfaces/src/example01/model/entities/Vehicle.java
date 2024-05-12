@@ -1,4 +1,4 @@
-package example01.entities;
+package example01.model.entities;
 
 public class Vehicle {
 
@@ -18,4 +18,5 @@ public class Vehicle {
   public void setModel(String model) {
     this.model = model;
   }
+
 }
