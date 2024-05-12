@@ -6,12 +6,12 @@ import example01.model.entities.CarRental;
 import example01.model.entities.Invoice;
 
 public class RentalService {
-  private BrazilTaxService taxService;
+  private TaxService taxService;
 
   private Double pricePerHour;
   private Double pricePerDay;
 
-  public RentalService(Double pricePerHour, Double pricePerDay, BrazilTaxService taxService) {
+  public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
     this.pricePerHour = pricePerHour;
     this.pricePerDay = pricePerDay;
     this.taxService = taxService;
