@@ -1,0 +1,3 @@
+Computer,1790.50
+IPhone X,1910.99
+Tablet,1550.69
