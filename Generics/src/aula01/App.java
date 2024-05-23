@@ -1,8 +1,8 @@
-package app;
+package aula01;
 
 import java.util.Scanner;
 
-import app.service.PrintService;
+import aula01.services.PrintService;
 
 public class App {
     public static void main(String[] args) throws Exception {
