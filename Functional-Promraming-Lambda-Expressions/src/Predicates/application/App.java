@@ -2,11 +2,9 @@ package Predicates.application;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.function.Predicate;
 
 import Predicates.entites.Product;
-import Predicates.util.ProductPredicate;
 
 public class App {
 
@@ -22,6 +20,10 @@ public class App {
     double min = 100.0;
     Predicate<Product> pred = p -> p.getPrice() >= min;
     list.removeIf(pred);
+    // list.removeIf(Product::staticPredicate);
+    // list.removeIf(Product::nonStaticPredicate);
+    // list.removeIf(new ProductPredicate());
+    // list.removeIf(p -> p.getPrice() >= 100.0));
     for (Product p : list) {
       System.out.println(p);
     }

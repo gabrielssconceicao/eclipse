@@ -1,7 +1,6 @@
 package Comparators.application;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import Comparators.entites.Product;
@@ -29,6 +28,12 @@ public class App {
     // p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 
     list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+
+    // list.sort(comp);
+    // list.sort((p1, p2) ->
+    // p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+    // list.sort(new MyComparator());
+
     for (Product p : list) {
       System.out.println(p);
     }

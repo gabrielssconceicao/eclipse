@@ -6,7 +6,6 @@ import java.util.Locale;
 import java.util.function.Consumer;
 
 import Consumers.entites.Product;
-import Consumers.util.PriceUpdate;
 
 public class App {
 
@@ -24,6 +23,10 @@ public class App {
     list.add(new Product("HD Case", 80.00));
 
     list.forEach(cons);
+    // list.forEach(Product::staticPriceUpdate);
+    // list.forEach(Product::nonStaticPriceUpdate);
+    // list.forEach(new PriceUpdate());
+    // list.forEach(p -> p.setPrice(p.getPrice() * 1.5));
     list.forEach(System.out::println);
 
   }
