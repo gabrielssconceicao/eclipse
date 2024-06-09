@@ -11,6 +11,9 @@ public class App {
     Stream<Integer> st1 = list.stream().map(x -> x * 10);
     System.out.println(Arrays.toString(st1.toArray()));
 
+    int sum = list.stream().reduce(0, (x, y) -> x + y);
+    System.out.println("Sum = " + sum);
+
     Stream<String> st2 = Stream.of("Maicon", "Maria", "Bob");
     System.out.println(Arrays.toString(st2.toArray()));
 
