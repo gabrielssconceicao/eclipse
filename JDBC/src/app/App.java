@@ -64,5 +64,11 @@ public class App {
         DepartmentDAO departmentDAO = DAOFactory.createDepartmentDAO();
         Department department = departmentDAO.findById(2);
         System.out.println(department);
+
+        System.out.println("\n=== TEST 8: department findAll ===\n");
+        List<Department> list = departmentDAO.findAll();
+        for (Department obj : list) {
+            System.out.println(obj);
+        }
     }
 }
