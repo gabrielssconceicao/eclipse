@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,17 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
 
   @Override
   public void deleteById(Integer id) {
-    // TODO Auto-generated method stub
+    String sql = "DELETE FROM department WHERE Id = ?";
+    PreparedStatement stmt = null;
+    try {
+      stmt = conn.prepareStatement(sql);
+      stmt.setInt(1, id);
+      stmt.executeUpdate();
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+    } finally {
+      DB.closeStatement(stmt);
+    }
 
   }
 
@@ -74,13 +85,48 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
 
   @Override
   public void insert(Department obj) {
-    // TODO Auto-generated method stub
+    String sql = "INSERT INTO department (Name) VALUES (?);";
 
+    PreparedStatement stmt = null;
+    try {
+      stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+      stmt.setString(1, obj.getName());
+
+      int rowsAffected = stmt.executeUpdate();
+
+      if (rowsAffected > 0) {
+        ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+
+          int id = rs.getInt(1);
+          obj.setId(id);
+
+        }
+        DB.closeResultSet(rs);
+      } else {
+        throw new DbException("Unexpected error! No rows affected!");
+      }
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+    } finally {
+      DB.closeStatement(stmt);
+    }
   }
 
   @Override
   public void update(Department obj) {
-    // TODO Auto-generated method stub
+    String sql = "UPDATE department SET Name = ? WHERE Id = ?";
+    PreparedStatement stmt = null;
+    try {
+      stmt = conn.prepareStatement(sql);
+      stmt.setString(1, obj.getName());
+      stmt.setInt(2, obj.getId());
+      stmt.executeUpdate();
+    } catch (SQLException e) {
+      throw new DbException(e.getMessage());
+    } finally {
+      DB.closeStatement(stmt);
+    }
 
   }
 

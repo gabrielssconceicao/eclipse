@@ -12,6 +12,7 @@ import models.entities.Seller;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        SellerImplementation();
         DepartmentImplementation();
     }
 
@@ -70,5 +71,20 @@ public class App {
         for (Department obj : list) {
             System.out.println(obj);
         }
+
+        System.out.println("\n=== TEST 9: department insert ===\n");
+        Department newDepartment = new Department(null, "Music");
+        departmentDAO.insert(newDepartment);
+        System.out.println("Inserted! New id = " + newDepartment.getId());
+
+        System.out.println("\n=== TEST 10: department delete ===\n");
+        departmentDAO.deleteById(6);
+        System.out.println("Delete completed");
+
+        System.out.println("\n=== TEST 11: department update ===\n");
+        Department altDepartment = departmentDAO.findById(5);
+        altDepartment.setName("Food");
+        departmentDAO.update(altDepartment);
+        System.out.println("Update completed");
     }
 }
