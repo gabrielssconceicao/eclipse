@@ -5,12 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 import models.dao.DAOFactory;
+import models.dao.DepartmentDAO;
 import models.dao.SellerDAO;
 import models.entities.Department;
 import models.entities.Seller;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        DepartmentImplementation();
+    }
+
+    public static void SellerImplementation() {
         Scanner sc = new Scanner(System.in);
         SellerDAO sellerDAO = DAOFactory.createSellerDAO();
 
@@ -51,5 +56,13 @@ public class App {
         System.out.println("Delete completed");
 
         sc.close();
+    }
+
+    public static void DepartmentImplementation() {
+
+        System.out.println("\n=== TEST 7: department findById ===\n");
+        DepartmentDAO departmentDAO = DAOFactory.createDepartmentDAO();
+        Department department = departmentDAO.findById(2);
+        System.out.println(department);
     }
 }
